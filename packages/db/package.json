@@ -19,5 +19,11 @@
     "drizzle-kit": "^0.20.14",
     "drizzle-orm": "^0.29.3",
     "pg": "^8.11.3"
+  },
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "require": "./index.js"
+    }
   }
 }

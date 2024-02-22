@@ -46,3 +46,7 @@ yarn-error.log*
 /drizzle
 
 .turbo
+
+build/**
+dist/**
+.next/**

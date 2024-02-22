@@ -2,7 +2,7 @@
   "name": "academic-graph",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "bun",
+  "packageManager": "bun@1.0.28", 
   "scripts": {
     "dev": "turbo dev"
   }

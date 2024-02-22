@@ -1,0 +1,22 @@
+{
+  "name": "@academic-graph/db",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "db:push": "drizzle-kit push:pg",
+    "db:pull": "drizzle-kit introspect:pg",
+    "db:studio": "drizzle-kit studio"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/pg": "^8.11.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "drizzle-kit": "^0.20.14",
+    "drizzle-orm": "^0.29.3",
+    "pg": "^8.11.3"
+  }
+}

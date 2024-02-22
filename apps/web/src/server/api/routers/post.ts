@@ -5,7 +5,7 @@ import {
   protectedProcedure,
   publicProcedure,
 } from "@/server/api/trpc";
-import { posts } from "@academic-graph/db";
+import { posts } from "@academic-graph/db/schema";
 
 export const postRouter = createTRPCRouter({
   hello: publicProcedure

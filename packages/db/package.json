@@ -18,12 +18,17 @@
   "dependencies": {
     "drizzle-kit": "^0.20.14",
     "drizzle-orm": "^0.29.3",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "next-auth": "^4.24.6"
   },
   "exports": {
     ".": {
       "import": "./index.ts",
       "require": "./index.js"
+    },
+    "./schema": {
+      "import": "./schema.ts",
+      "require": "./schema.js"
     }
   }
 }

@@ -6,7 +6,7 @@ import {
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
 
-import { env } from "@/env";
+// import { env } from "@/env";
 import { db } from "@academic-graph/db";
 
 /**
@@ -45,7 +45,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
-  adapter: DrizzleAdapter(db, ) as Adapter,
+  adapter: DrizzleAdapter(db) as Adapter,
   providers: [
     // DiscordProvider({
     //   clientId: env.DISCORD_CLIENT_ID,

@@ -2,8 +2,13 @@
   "name": "academic-graph",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "bun@1.0.27",
   "scripts": {
     "dev": "turbo dev"
-  }
+  },
+  "dependencies": {
+    "turbo": "^1.12.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

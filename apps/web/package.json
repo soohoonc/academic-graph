@@ -10,8 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@academic-graph/db": "file:../packages/db",
-    "@academic-graph/utils": "file:../packages/utils",
+    "@academic-graph": "file:packagph", 
     "@auth/drizzle-adapter": "^0.3.6",
     "@neondatabase/serverless": "^0.7.2",
     "@planetscale/database": "^1.11.0",

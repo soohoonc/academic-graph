@@ -9,15 +9,13 @@ import Graph from "@/components/graph";
 
 export default async function Home() {
   noStore();
-  // const hello = await api.post.hello.query({ text: "from tRPC" });
+  // const hello = await api.user.hello.query({ text: "from tRPC" });
   // const session = await getServerAuthSession();
-
   return (
     <main className="flex min-h-screen">
       <Header />
       <Sidebar />
       <Graph />
-      {/* {hello.greeting} */}
     </main>
   );
 }

@@ -6,7 +6,7 @@ import {
 } from "next-auth";
 import { type Adapter } from "next-auth/adapters";
 
-// import { env } from "@/env";
+import { env } from "@/env";
 import { db } from "@academic-graph/db";
 
 /**
@@ -61,6 +61,13 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  session: {
+    strategy: "jwt",
+  },
+  jwt: {
+    secret: env.NEXTAUTH_SECRET,
+  },
+  debug: env.NODE_ENV === "development",
 };
 
 /**

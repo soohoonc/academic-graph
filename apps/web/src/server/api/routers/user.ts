@@ -2,10 +2,10 @@ import { z } from "zod";
 
 import {
   createTRPCRouter,
-  protectedProcedure,
+  // protectedProcedure,
   publicProcedure,
 } from "@/server/api/trpc";
-import { users } from "@academic-graph/db/schema";
+// import { users } from "@academic-graph/db/schema";
 
 export const userRouter = createTRPCRouter({
   hello: publicProcedure

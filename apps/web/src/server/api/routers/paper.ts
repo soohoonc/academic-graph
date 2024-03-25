@@ -1,11 +1,11 @@
 import { z } from "zod";
+import { type Paper, selectPapersSchema } from "@academic-graph/db/types";
 
 import {
   createTRPCRouter,
   // protectedProcedure,
   publicProcedure,
 } from "@/server/api/trpc";
-// import { papers } from "@academic-graph/db/schema";
 
 export const paperRouter = createTRPCRouter({
   hello: publicProcedure
@@ -16,15 +16,27 @@ export const paperRouter = createTRPCRouter({
       };
     }),
 
-  // create: protectedProcedure
-  //   .input(z.object({ name: z.string().min(1) }))
-  //   .mutation(async ({ ctx, input }) => {
-  //     // simulate a slow db call
-  //     await new Promise((resolve) => setTimeout(resolve, 1000));
+  get: publicProcedure
+    .input(z.object({ limit: z.number().int().positive() }))
+    .output(z.array(selectPapersSchema))
+    .query(async ({ ctx, input }) => {
+      const result: Paper[] = []
+      const first: Paper | undefined =  await ctx.db.query.papers.findFirst()
+      if (first)
+        result.push(first)
+      return result;
+    }),
 
-  //     await ctx.db.insert(posts).values({
-  //       name: input.name,
-  //       createdById: ctx.session.user.id,
+  // create: protectedProcedure
+  //   .input(z.object({ doi: z.string().min(1) }))
+  //   .mutation(async ({ ctx, input }) => {
+  //     const paper: Paper = await getPaper(input.doi)
+  //     await ctx.db.insert(papers).values({
+  //       doi: input.doi,
+  //       title: paper.title,
+  //       abstract: paper.abstract,
+  //       n_citation: paper.n_citation,
+  //       url: paper.url,
   //     });
   //   }),
 

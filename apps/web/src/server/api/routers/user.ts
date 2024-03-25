@@ -15,12 +15,10 @@ export const userRouter = createTRPCRouter({
         greeting: `Hello (user) ${input.text}`,
       };
     }),
-  // get: protectedProcedure
+  // getPapers: protectedProcedure
   //   .input(z.object({ id: z.string() }))
   //   .query(async ({ ctx, input }) => {
-  //     return ctx.db.query(users).findUnique({
-  //       where: { id: input.id },
-  //     });
+  //     return ctx.db.query.users.findMany()
   //   }),
 
   // create: protectedProcedure

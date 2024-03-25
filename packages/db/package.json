@@ -29,6 +29,10 @@
     "./schema": {
       "import": "./schema.ts",
       "require": "./schema.js"
+    },
+    "./types": {
+      "import": "./zod.ts",
+      "require": "./zod.js"
     }
   }
 }

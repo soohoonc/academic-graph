@@ -20,10 +20,9 @@ export const paperRouter = createTRPCRouter({
     .input(z.object({ limit: z.number().int().positive() }))
     .output(z.array(selectPapersSchema))
     .query(async ({ ctx, input }) => {
-      const result: Paper[] = []
-      const first: Paper | undefined =  await ctx.db.query.papers.findFirst()
-      if (first)
-        result.push(first)
+      const result: Paper[] = [];
+      const first: Paper | undefined = await ctx.db.query.papers.findFirst();
+      if (first) result.push(first);
       return result;
     }),
 

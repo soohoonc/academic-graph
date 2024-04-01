@@ -1,40 +1,37 @@
-import React from 'react'
-import { type Session } from 'next-auth'
-import { type Paper } from '@academic-graph/db/types'
+import React from "react";
+import { type Session } from "next-auth";
+import { type Paper } from "@academic-graph/db/types";
 
 interface DashboardProps {
-  session: Session | null
-  userPapers: Paper[]
+  session: Session | null;
+  userPapers: Paper[];
 }
 
-const Dashboard = ({
-  session,
-  userPapers
-}: DashboardProps) => {
+const Dashboard = ({ session, userPapers }: DashboardProps) => {
   return (
-    <div className="flex flex-col w-full p-4">
+    <div className="flex w-full flex-col p-4">
       <p className="font-semibold">Papers</p>
       <ul>
         {userPapers.map((paper: Paper) => (
-          <li key={paper.id}><PaperMetadata paper={paper}/></li>
+          <li key={paper.id}>
+            <PaperMetadata paper={paper} />
+          </li>
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 interface PaperMetadataProps {
-  paper: Paper
+  paper: Paper;
 }
 
-const PaperMetadata = ({
-  paper
-}: PaperMetadataProps) => {
+const PaperMetadata = ({ paper }: PaperMetadataProps) => {
   return (
     <div>
       <p>{paper.title}</p>
     </div>
-  )
+  );
 };
 
-export default Dashboard
+export default Dashboard;

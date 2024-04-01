@@ -1,10 +1,7 @@
-import React from 'react'
-
+import React from "react";
 
 const Graph = () => {
-  return (
-    <div>Graph</div>
-  )
-}
+  return <div>Graph</div>;
+};
 
-export default Graph
+export default Graph;

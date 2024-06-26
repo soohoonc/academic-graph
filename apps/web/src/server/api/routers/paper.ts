@@ -9,21 +9,27 @@ import {
 
 export const paperRouter = createTRPCRouter({
   hello: publicProcedure
-    .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
+    // .input(z.object({ text: z.string() }))
+    .output(z.object({ greeting: z.string() }))
+    .query(({}) => {
       return {
-        greeting: `Hello (papers) ${input.text}`,
+        greeting: `Hello (papers)`,
       };
     }),
+    // .query(({ input }) => {
+    //   return {
+    //     greeting: `Hello (papers) ${input.text}`,
+    //   };
+    // }),
 
-  get: publicProcedure
+  getMany: publicProcedure
     .input(z.object({ limit: z.number().int().positive() }))
     .output(z.array(selectPapersSchema))
     .query(async ({ ctx, input }) => {
-      const result: Paper[] = [];
-      const first: Paper | undefined = await ctx.db.query.papers.findFirst();
-      if (first) result.push(first);
-      return result;
+      // const result: Paper[] = await ctx.db.query.papers.findMany({
+      //   limit: input.limit,
+      // });
+      return [];
     }),
 
   // create: protectedProcedure

@@ -9,7 +9,7 @@
   "dependencies": {
     "drizzle-zod": "^0.5.1",
     "prettier": "^3.2.5",
-    "turbo": "^1.12.4"
+    "turbo": "^2.0.5"
   },
   "workspaces": [
     "apps/*",

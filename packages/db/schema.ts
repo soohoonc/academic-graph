@@ -20,22 +20,22 @@ import { type AdapterAccount } from "next-auth/adapters";
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
 
-// export const posts = pgTable(
-//   "post",
-//   {
-//     id: serial("id").primaryKey(),
-//     name: varchar("name", { length: 256 }),
-//     createdById: varchar("createdById", { length: 255 }).notNull(),
-//     createdAt: timestamp("created_at")
-//       .default(sql`CURRENT_TIMESTAMP`)
-//       .notNull(),
-//     updatedAt: timestamp("updatedAt")
-//   },
-//   (example) => ({
-//     createdByIdIdx: index("createdById_idx").on(example.createdById),
-//     nameIndex: index("name_idx").on(example.name),
-//   })
-// );
+export const posts = pgTable(
+  "post",
+  {
+    id: serial("id").primaryKey(),
+    name: varchar("name", { length: 256 }),
+    createdById: varchar("createdById", { length: 255 }).notNull(),
+    createdAt: timestamp("created_at")
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt")
+  },
+  (example) => ({
+    createdByIdIdx: index("createdById_idx").on(example.createdById),
+    nameIndex: index("name_idx").on(example.name),
+  })
+);
 
 export const users = pgTable("user", {
   id: text("id").notNull().primaryKey(),
